@@ -62,6 +62,8 @@ def view():
     
     sorted_report = sorted(report, reverse=True)
     
+    file.close()
+    
     # return render_template('view.html', photo=photo_name, info=info, date=date)
     return render_template('view.html', report=sorted_report)
 

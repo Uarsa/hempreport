@@ -53,9 +53,6 @@ def upload():
 
 @app.route('/view')
 def view():
-    # image = os.path.join(app.config['UPLOAD_FOLDER'])
-    # photo = os.path.join(app.config['UPLOAD_FOLDER'], 'face.jpg')
-    # photo_name = r"static\photos\face.PNG"
 
     file = open('today.json')
     report = json.load(file)

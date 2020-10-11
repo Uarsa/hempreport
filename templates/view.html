@@ -19,9 +19,8 @@
     <a class="p-2 text-dark" href="/">Home</a>
       <a class="p-2 text-dark" href="/upload">Create</a>
       <a class="p-2 text-dark" href="/view">Posts</a>
-    <!--a class="p-2 text-dark" href="/about">About</a-->
   </nav>
-  <!--a class="btn btn-outline-primary" href="#">Sign up</a-->
+
 </div>
 </header>
 
@@ -33,23 +32,11 @@
 
     <h1>VIEW POSTS</h1>
 
-    <!--div class="alert alert-info"></div-->
-    <!--class="img-thumbnail"-->
-
-
-
-    <!--img src="static\photos\face.PNG"-->
-
-     <!--p>{{ date }}</p>
-     <p>{{ info }}</p>
-     <img src="{{ photo }}"-->
-
-
     {% for key in report %}
         <p>{{ key }}</p>
         <p>{{ report[key][0] }}</p>
         <p>{{ report[key][1] }}</p>
-        <img src="{{ report[key][2] }}">
+        <img src="static\photos\{{report[key][2]}}">
     {% endfor %}
 
 

@@ -11,7 +11,6 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-
 @app.route('/')
 @app.route('/home')
 def index():
@@ -50,7 +49,6 @@ def upload():
         return render_template('upload.html')
 
 
-
 @app.route('/view')
 def view():
 
@@ -65,11 +63,6 @@ def view():
     return render_template('view.html', report=sorted_report)
 
 
-
-
-
 if __name__ == '__main__':
     app.run(debug=True)
     
-    
-  

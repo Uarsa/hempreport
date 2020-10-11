@@ -24,9 +24,8 @@ def upload():
         info = request.form["info"]
         photo = request.files["photo"]
         photo.save(os.path.join(app.config['UPLOAD_FOLDER'], photo.filename))
-        # file.save(os.path.join('D:\\', 'files', 'photos'), file.filename)
         photo_name = photo.filename
-        # photo_name = "static\\photos" + "\\" + photo.filename   # WORKS!
+        
 
         try:
             file = open("today.json")
@@ -38,7 +37,7 @@ def upload():
         except FileNotFoundError:
             report = {}
             file = open("today.json", 'w')
-            report[1] = [date, info, photo_name]  # 0=date, 1=info, 2=photo
+            report[1] = [date, info, photo_name]
             file.close()
 
         file = open("today.json", 'w')
@@ -62,11 +61,8 @@ def view():
     for k in sorted_keys_list:
         sorted_report[k] = report[k]
 
-    # return render_template('view.html', photo=photo_name, info=info, date=date)
     return render_template('view.html', report=sorted_report)
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-

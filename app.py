@@ -2,7 +2,8 @@ import os, datetime, json
 from flask import Flask, flash, request, redirect, url_for, render_template, make_response
 
 
-UPLOAD_FOLDER = "D:\hempreport\static\photos"
+#UPLOAD_FOLDER = "D:\hempreport\static\photos"
+UPLOAD_FOLDER = "static/photos/"
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
 
@@ -23,6 +24,7 @@ def upload():
         date = datetime.datetime.now().strftime('%d/%m/%Y')
         info = request.form["info"]
         photo = request.files["photo"]
+        
         photo.save(os.path.join(app.config['UPLOAD_FOLDER'], photo.filename))
         photo_name = photo.filename
         

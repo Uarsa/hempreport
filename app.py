@@ -2,7 +2,7 @@ import os, datetime, json
 from flask import Flask, flash, request, redirect, url_for, render_template, make_response
 
 
-#UPLOAD_FOLDER = "D:\hempreport\static\photos"
+# UPLOAD_FOLDER = "D:\hempreport\static\photos"
 UPLOAD_FOLDER = "static/photos/"
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
@@ -27,7 +27,6 @@ def upload():
         
         photo.save(os.path.join(app.config['UPLOAD_FOLDER'], photo.filename))
         photo_name = photo.filename
-        
 
         try:
             file = open("today.json")
@@ -54,16 +53,24 @@ def upload():
 @app.route('/view')
 def view():
 
-    file = open("today.json")
-    report = json.load(file)
+    try:
 
-    sorted_keys_list = sorted(report, reverse=True)
-    sorted_report = {}
+        file = open("today.json")
+        report = json.load(file)
 
-    for k in sorted_keys_list:
-        sorted_report[k] = report[k]
+        sorted_keys_list = sorted(report, reverse=True)
+        sorted_report = {}
 
-    return render_template('view.html', report=sorted_report)
+        for k in sorted_keys_list:
+            sorted_report[k] = report[k]
+
+        return render_template('view.html', report=sorted_report)
+
+    except:
+
+        #sorted_report = {1: ["x.x.x", "empty", "none.jpg"]}
+        return render_template('view.html', report=None)
+        #return redirect('/upload')
 
 
 if __name__ == '__main__':

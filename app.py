@@ -67,11 +67,13 @@ def view():
         return render_template('view.html', report=sorted_report)
 
     except:
-
-        #sorted_report = {1: ["x.x.x", "empty", "none.jpg"]}
+        
         return render_template('view.html', report=None)
         #return redirect('/upload')
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+    
+    

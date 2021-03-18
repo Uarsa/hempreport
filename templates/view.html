@@ -28,17 +28,26 @@
 <body>
 
 <div class="container">
-<div class="space_ceiling">
-</div>
-
-    <h1>VIEW POSTS</h1>
-
-{% if report %}
-    {% for key in report %}
-        <p>{{ key }}</p>
-        <p>{{ report[key][0] }}</p>
-        <p>{{ report[key][1] }}</p>
-        <img src="static\photos\{{report[key][2]}}">
+    
+    
+    <div class="space_ceiling">
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-8">
+                    <h1>VIEW POSTS</h1>
+                    
+                    {% if report %}
+                    {% for key in report %}
+                      <p>{{ key }}</p>
+                      <p>{{ report[key][0] }}</p>
+                      <p>{{ report[key][1] }}</p>
+                    
+                </div>
+                
+                <div class="col-4">
+                  <img src="static\photos\{{report[key][2]}}">
+                </div>
     
     <p><br> </p>
     <hr class="featurette-divider">
@@ -53,9 +62,16 @@
 
 
 {% endif %}
+                
+                
+                
+       </div>
 
 
-
+    </div>
+  </div>
+    
+    
 </div>
 
 

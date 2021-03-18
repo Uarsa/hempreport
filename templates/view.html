@@ -38,52 +38,39 @@
             <h1>VIEW POSTS</h1>
             
            
-                    {% if report %}
+                  {% if report %}
                     {% for key in report %}
             
-             <div class="row">
-                <div class="col-8">
+                      <div class="row">
+                        <div class="col-8">
 
-                      <p>{{ key }}</p>
-                      <p>{{ report[key][0] }}</p>
-                      <p>{{ report[key][1] }}</p>
+                          <p>{{ key }}</p>
+                          <p>{{ report[key][0] }}</p>
+                          <p>{{ report[key][1] }}</p>
                     
-                </div>
+                       </div>
                 
-                <div class="col-4">
-                  <img src="static\photos\{{report[key][2]}}">
-                </div>
+                       <div class="col-4">
+                         <img src="static\photos\{{report[key][2]}}">
+                       </div>
+                    </div>     
     
-    <p><br> </p>
-    <hr class="featurette-divider">
-    {% endfor %}
-{% else %}
-    <p><br> </p>
 
-    <p>No posts...</p>
-
-    <div class="space_bottom">
-    
-        </div>
-    </div>
-
-
-{% endif %}
+                 {% endfor %}
+            
+                 {% else %}
+                   <p>No posts...</p>
+               {% endif %}
                 
                 
                 
-      
-
-
-    </div>
-  
-    
-    
+  </div>
 </div>
 
 
 </body>
 
+    
 <footer class="container">
     <p class="float-right"><a href="#">Back to top</a></p>
     <p>© 2020 UARSA DEVELOPMENT. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>

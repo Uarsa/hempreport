@@ -29,11 +29,11 @@
 
 <div class="container">
     
+  <div class="space_ceiling">
+  </div>
     
-    <div class="space_ceiling">
-    </div>
-    
-        <div class="container">
+      <div class="container">
+            
             
             <h1>VIEW POSTS</h1>
             <p><br> </p>
@@ -41,20 +41,19 @@
            
                   {% if report %}
                     {% for key in report %}
-                    <div class="container ps-1 pe-1 pt-1 pb-1 mb-1">
-            
-                      <div class="row">
-                          <div class="col-8">
-                          <p>{{ key }}</p>
-                          <p>{{ report[key][0] }}</p>
-                          <p>{{ report[key][1] }}</p>
+                    <div class="row mt-5 bg-success rounded">
+                      <div class="col-8 p-3 bg-white rounded">
+                          <h4>ДЕНЬ {{ key }}</h4><br>
+                          <h5>{{ report[key][0] }}</h5>
+                          <br><br><br><br><br>
+                          <h5>{{ report[key][1] }}</h5>
                         </div>
                 
-                       <div class="col-4">
+                       <div class="col-4 bg-success">
                          <img src="static\photos\{{report[key][2]}}" width="200" height="200">
                        </div>
                      </div>
-                   </div>
+                   
             
             
                     

@@ -4,29 +4,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>POSTS</title>
 </head>
 
 <header>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-  <h5 class="my-0 mr-md-auto font-weight-normal">HEMPREPORT</h5>
-  <nav class="my-2 my-md-0 mr-md-3">
-    <a class="p-2 text-dark" href="/">Home</a>
-      <a class="p-2 text-dark" href="/upload">Create</a>
-      <a class="p-2 text-dark" href="/view">Posts</a>
-  </nav>
-
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+<h5 class="my-0 mr-md-auto font-weight-normal">HEMPREPORT</h5>
+<nav class="my-2 my-md-0 mr-md-3">
+  <a class="p-2 text-dark" href="/">Home</a>
+  <a class="p-2 text-dark" href="/upload">Create</a>
+  <a class="p-2 text-dark" href="/view">Posts</a>
+</nav>
 </div>
 </header>
 
-
+    
 <body>
-
 <div class="container">
   <!--div class="space_ceiling">
   </div-->
@@ -38,17 +33,17 @@
                     <div class="row mt-5 rounded">
                         
                       <div class="col-8 p-3 bg-white rounded">
-                          <h4>ДЕНЬ {{ key }}</h4><br>
-                          <h5>{{ report[key][1] }}</h5>
-                          <br><br><br><br><br>
-                          <h5>{{ report[key][0] }}</h5>
-                        </div>
+                        <h4>ДЕНЬ {{ key }}</h4><br>
+                        <h5>{{ report[key][1] }}</h5>
+                        <br><br><br><br><br>
+                        <h5>{{ report[key][0] }}</h5>
+                      </div>
                 
-                       <div class="col-4">
-                         <img src="static\photos\{{report[key][2]}}">
-                       </div>
+                      <div class="col-4">
+                        <div class="card"><img src="static\photos\{{report[key][2]}}"></div>
+                      </div>
                         
-                     </div>
+                    </div>
                    
 
                     {% endfor %}

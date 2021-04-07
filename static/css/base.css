@@ -1,3 +1,8 @@
+body{
+background-image: url("static/photos/mari.jpg");
+background-size: 100%;
+}
+
 .mainbody{
 margin-top: 100px;
 height: 700px;

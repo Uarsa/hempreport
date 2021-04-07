@@ -31,12 +31,22 @@
 <div class="mainbody">
 
 
-    <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
-        <input type="text" name="info" id="info" class="form-control" placeholder="info"><br>
+  <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-8">
+        <input type="text" name="info" id="description" class="form-control" placeholder="description"><br>
+      </div>
+      <div class="col">  
+        <input type="text" name="info" id="temp" class="form-control" placeholder="temp"><br>
+      </div>
+      <div class="col">
+        <input type="text" name="info" id="humidity" class="form-control" placeholder="humidity"><br>
+      </div>    
         <p><input type="file" name="photo">
         <p><input type="submit" class="btn btn-success" value="Upload">
-    </form>
-
+    </div>
+  </form>
+  
 
 </div>
 </div>

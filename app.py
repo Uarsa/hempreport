@@ -34,13 +34,13 @@ def upload():
             file = open("today.json")
             report = json.load(file)
             counter = int(max(report))
-            report[counter + 1] = [date, info, photo_name]
+            report[counter + 1] = [date, description, temp, humidity, photo_name]
             file.close()
 
         except FileNotFoundError:
             report = {}
             file = open("today.json", 'w')
-            report[1] = [date, info, photo_name]
+            report[1] = [date, description, temp, humidity, photo_name]
             file.close()
 
         file = open("today.json", 'w')
@@ -71,11 +71,9 @@ def view():
     except:
         
         return render_template('view.html', report=None)
-        #return redirect('/upload')
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-
     
     

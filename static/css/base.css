@@ -3,7 +3,7 @@ background-image: url("/static/photos/mari.jpg");
 background-size: 100%;
 }
 
-h1{
+h1, h6{
 color: white;
 }
 

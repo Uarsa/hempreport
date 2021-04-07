@@ -22,7 +22,9 @@ def upload():
     if request.method == 'POST':
         # description = request.form['description']
         date = datetime.datetime.now().strftime('%d/%m/%Y')
-        info = request.form["info"]
+        description = request.form["description"]
+        temp = request.form["temp"]
+        humidity = request.form["humidity"]
         photo = request.files["photo"]
         
         photo.save(os.path.join(app.config['UPLOAD_FOLDER'], photo.filename))

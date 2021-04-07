@@ -32,15 +32,16 @@
   <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
     <div class="row">
       <div class="col-8">
-        <input type="text" name="info" id="description" class="form-control" placeholder="description">
+        <input type="text" name="description" id="description" class="form-control" placeholder="description">
       </div>
       <div class="col">  
-        <input type="text" name="info" id="temp" class="form-control" placeholder="temp">
+        <input type="text" name="temp" id="temp" class="form-control" placeholder="temp">
       </div>
       <div class="col">
-        <input type="text" name="info" id="humidity" class="form-control" placeholder="humidity">
+        <input type="text" name="humidity" id="humidity" class="form-control" placeholder="humidity">
       </div>    
     </div>
+    <br>
     <p><input type="file" name="photo">
     <p><input type="submit" class="btn btn-success" value="Upload">
   </form>

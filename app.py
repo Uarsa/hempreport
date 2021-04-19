@@ -17,6 +17,14 @@ def index():
     return render_template('index.html')
 
 
+@app.route("/new_plant", methods=['POST', 'GET'])
+def new_plant():
+    if request.method == 'POST':
+        return "something added"
+    else:
+        return render_template('new_plant.html')
+        
+    
 @app.route('/upload', methods=['POST', 'GET'])
 def upload():
     if request.method == 'POST':

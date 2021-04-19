@@ -37,8 +37,63 @@
     <a href="/new_plant" class="btn btn-outline-light">&nbsp; New &nbsp; plant &nbsp;</a>
     <br><br><br>
     
-    
     <div class="container">
+    
+    {% if plants %}
+        <div class="row rounded">
+            {% for key in plants %}
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="PLANT 1">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ plants[key][0] }}</h5>
+                        <p class="card-text">{{ plants[key][1] }}</p>
+                        <a href="#" class="btn btn-primary">REPORT</a>
+                    </div>
+                </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>There are no plants yet...</p>
+    {% endif %}
+                    
+                    
+                        
+                      
+                        <h4>ДЕНЬ {{ key }}</h4><br>
+                        <h5>{{ report[key][1] }}</h5>
+                        <h5>t:{{report[key][2]}}  h:{{report[key][3]}}</h5> 
+                        <br><br><br><br>
+                        <h5>{{ report[key][0] }}</h5>
+                      </div>
+                
+                      <div class="col-4">
+                        <div class="card"><img src="static\photos\{{report[key][4]}}"></div>
+                      </div>
+                        
+                    </div>
+                   
+
+                    {% endfor %}
+            
+                 {% else %}
+                   <br>
+                   <p>No posts...</p>
+                   <div class="space_bottom">
+                   </div>
+               {% endif %}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!--div class="container">
         
         <div class="row">
             <div class="col">
@@ -51,31 +106,10 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="PLANT 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Lemon OG</h5>
-                        <p class="card-text">Sativa dominant plant with citrus taste</p>
-                        <a href="#" class="btn btn-primary">REPORT</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="PLANT 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Devotchka</h5>
-                        <p class="card-text">Small plant</p>
-                        <a href="#" class="btn btn-primary">REPORT</a>
-                    </div>
-                </div>
-            </div>
         </div>
     
-    </div>
+        
+    </div-->
     
 
     

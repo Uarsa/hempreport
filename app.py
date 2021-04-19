@@ -20,7 +20,7 @@ def index():
 @app.route("/new_plant", methods=['POST', 'GET'])
 def new_plant():
     if request.method == 'POST':
-        return "something added"
+        return "<h1>something added</h1>"
     else:
         return render_template('new_plant.html')
         

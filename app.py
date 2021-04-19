@@ -14,13 +14,47 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 @app.route('/')
 @app.route('/home')
 def index():
-    return render_template('index.html')
+    try:
+
+        file = open("plants.json")
+        plants = json.load(file)
+        sorted_keys_list = sorted(plants, reverse=True)
+        sorted_plants = {}
+        file.close()
+        for k in sorted_keys_list:
+            sorted_plants[k] = plants[k]
+            
+        return render_template('index.html', plants=sorted_plants)
+    
+    except:
+        return render_template('index.html', plants=None)
 
 
 @app.route("/new_plant", methods=['POST', 'GET'])
 def new_plant():
     if request.method == 'POST':
-        return "<h1>something added</h1>"
+        date = datetime.datetime.now().strftime('%d/%m/%Y')
+        name = request.form["name"]
+        description = request.form["description"]
+        #photo = request.files["photo"]
+        #photo.save(os.path.join(app.config['UPLOAD_FOLDER'], photo.filename))
+        #photo_name = photo.filename
+        
+        try:
+            file = open("plants.json")
+            plants = json.load(file)
+            counter = int(max(plants))
+            plants[counter + 1] = [name, description, date]
+            file.close()
+
+        except FileNotFoundError:
+            plants = {}
+            file = open("plants.json", 'w')
+            plants[1] = [name, description, date]
+            file.close()
+
+        return redirect('/')
+    
     else:
         return render_template('new_plant.html')
         
@@ -70,10 +104,11 @@ def view():
 
         sorted_keys_list = sorted(report, reverse=True)
         sorted_report = {}
+        file.close()
 
         for k in sorted_keys_list:
             sorted_report[k] = report[k]
-
+            
         return render_template('view.html', report=sorted_report)
 
     except:

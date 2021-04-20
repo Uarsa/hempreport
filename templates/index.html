@@ -39,46 +39,25 @@
     
     <div class="container p-0">
     
-    {% if plants %}
-       <div class="row p-0 row-cols-4 rounded">
+      {% if plants %}
+        <div class="row p-0 row-cols-4 rounded">
             {% for key in plants %}
-                <div class="col p-0">
-                    <div class="card" style="width: 18rem;">
-                        <img src="static\photos\{{ plants[key][2] }}" class="card-img-top" alt="PLANT" width="250" height="250">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ plants[key][0] }}</h5>
-                            <p class="card-text">{{ plants[key][1] }}</p>
-                            <a href="#" class="btn btn-primary">REPORT</a>
-                        </div>
-                    </div>
-                </div>
+                  <div class="col p-0">
+                      <div class="card" style="width: 18rem;">
+                          <img src="static\photos\{{ plants[key][2] }}" class="card-img-top" alt="PLANT" width="250" height="250">
+                          <div class="card-body">
+                              <h5 class="card-title">{{ plants[key][0] }}</h5>
+                              <p class="card-text">{{ plants[key][1] }}</p>
+                              <a href="#" class="btn btn-primary">REPORT</a>
+                          </div>
+                      </div>
+                  </div>
             {% endfor %}
         </div>
-    {% else %}
-        <p>There are no plants yet...</p>
-    {% endif %}
-                    
-                    
-    
-    <!--div class="container">
-        
-        <div class="row">
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="PLANT 1">
-                    <div class="card-body">
-                        <h5 class="card-title">DC Cure 1:1</h5>
-                        <p class="card-text">Medical strain with a high CBD content</p>
-                        <a href="#" class="btn btn-primary">REPORT</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        
-    </div-->
-    
-    
+      {% else %}
+          <p>There are no plants yet...</p>
+      {% endif %}
+
     </div>
     
 

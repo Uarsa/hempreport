@@ -36,22 +36,26 @@ def new_plant():
         date = datetime.datetime.now().strftime('%d/%m/%Y')
         name = request.form["name"]
         description = request.form["description"]
-        #photo = request.files["photo"]
-        #photo.save(os.path.join(app.config['UPLOAD_FOLDER'], photo.filename))
-        #photo_name = photo.filename
+        photo = request.files["photo"]
+        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], photo.filename))
+        photo_name = photo.filename
         
         try:
             file = open("plants.json")
             plants = json.load(file)
             counter = int(max(plants))
-            plants[counter + 1] = [name, description, date]
+            plants[counter + 1] = [name, description, photo_name, date]
             file.close()
 
         except FileNotFoundError:
             plants = {}
             file = open("plants.json", 'w')
-            plants[1] = [name, description, date]
+            plants[1] = [name, description, photo_name, date]
             file.close()
+
+        file = open("plants.json", 'w')
+        json.dump(plants, file)
+        file.close()
 
         return redirect('/')
     
@@ -118,5 +122,3 @@ def view():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
-    

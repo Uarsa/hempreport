@@ -40,7 +40,7 @@ def index():
 
 
 @app.route('/new_plant', methods=['POST', 'GET'])
-def upload():
+def new_plant():
     if request.method == 'POST':
         bush_number = str(counter())
         counter_plus()

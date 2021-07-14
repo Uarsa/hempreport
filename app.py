@@ -39,6 +39,33 @@ def index():
     return render_template('index.html', count=count)
 
 
+@app.route('/new_plant', methods=['POST', 'GET'])
+def upload():
+    if request.method == 'POST':
+        bush_number = str(counter())
+        counter_plus()
+        date = str(datetime.now().strftime("%d.%m.%Y"))
+        name = request.form["name"]
+        description = request.form["description"]
+        photo = request.files["photo"]
+        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], photo.filename))
+        photo_name = photo.filename
+        bush = [bush_number, name, description, photo_name, date]
+        
+        with open(bush_number, "w") as f:
+            json.dump(bush, f)
+            
+        return redirect('/')
+    
+    else:
+        return render_template('new_plant.html')
+
+
+
+
+
+
+
 # for testing.
 # increase count on one when press New plant button.
 @app.route('/<int:count>')

@@ -17,8 +17,20 @@ def counter():
         i = f.read()
         count = int(i)
         return count
+    
 
-
+# increase counter on one.
+def counter_plus():
+    with open("static/resource/number_list.txt", "r") as f:
+        i = f.read()
+        count = int(i)
+        count = count + 1
+        
+    with open("static/resource/number_list.txt", "w") as f:
+        f.write(str(count))
+        
+        
+   
 @app.route('/')
 @app.route('/home')
 def index():

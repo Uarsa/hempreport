@@ -41,7 +41,7 @@ def index():
 
 # for testing.
 # increase count on one when press New plant button.
-@app.route('/home/<int:count>')
+@app.route('/<int:count>')
 def counts(count):
     try:
         counter_plus()

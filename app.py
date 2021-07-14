@@ -11,6 +11,18 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
+# counting bush number. contains zero when created.
+def counter():
+    with open("static/resource/number_list.txt", "r") as f:
+        i = f.read()
+        count = int(i)
+        return count
+
+
 @app.route('/')
 @app.route('/home')
 def index():
+    count = counter()
+    return render_template('index.html', count=count)
+  
+  

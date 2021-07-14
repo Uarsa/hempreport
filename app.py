@@ -44,6 +44,7 @@ def new_plant():
     if request.method == 'POST':
         bush_number = str(counter())
         counter_plus()
+        filename = bush_number + ".json"
         date = str(datetime.now().strftime("%d.%m.%Y"))
         name = request.form["name"]
         description = request.form["description"]
@@ -52,7 +53,7 @@ def new_plant():
         photo_name = photo.filename
         bush = [bush_number, name, description, photo_name, date]
         
-        with open(bush_number, "w") as f:
+        with open(filename, "w") as f:
             json.dump(bush, f)
             
         return redirect('/')

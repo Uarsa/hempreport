@@ -38,7 +38,7 @@ def index():
     return render_template('index.html', count=count)
 
 
-
+# increase count on one when press New plant button.
 @app.route('/home/<int:count>')
 def counts(count):
     try:

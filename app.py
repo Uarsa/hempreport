@@ -11,14 +11,16 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-# counting bush number. contains zero when created.
+# mechanism of site.
+# counting bush number. in beginning contains zero.
 def counter():
     with open("static/resource/number_list.txt", "r") as f:
         i = f.read()
         count = int(i)
         return count
     
-
+    
+# mechanism of site.
 # increase counter on one.
 def counter_plus():
     with open("static/resource/number_list.txt", "r") as f:
@@ -30,7 +32,6 @@ def counter_plus():
         f.write(str(count))
         
         
-   
 @app.route('/')
 @app.route('/home')
 def index():
@@ -38,6 +39,7 @@ def index():
     return render_template('index.html', count=count)
 
 
+# for testing.
 # increase count on one when press New plant button.
 @app.route('/home/<int:count>')
 def counts(count):

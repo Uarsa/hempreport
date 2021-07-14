@@ -36,5 +36,43 @@ def counter_plus():
 def index():
     count = counter()
     return render_template('index.html', count=count)
+
+
+
+@app.route('/home/<int:count>')
+def counts(count):
+    try:
+        counter_plus()
+        return redirect('/')
+    except:
+        return "Something goes wrong..."
   
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

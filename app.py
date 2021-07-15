@@ -43,7 +43,7 @@ def index():
 def new_plant():
     if request.method == 'POST':
         bush_number = str(counter())
-        #counter_plus()
+        counter_plus()
         filename_bush = bush_number + ".json"
         date = str(datetime.now().strftime("%d.%m.%Y"))
         name = request.form["name"]

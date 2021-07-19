@@ -50,7 +50,7 @@ def new_plant():
             # creates a file into which data will be written
             bush_name = str(counter + 1) + ".json"
             with open(bush_name, "w") as f:
-            json.dump("!", f)
+                pass
             
         except FileNotFoundError:
             # create list with plants main info. for preview on main page
@@ -61,7 +61,7 @@ def new_plant():
             # creates a first file into which data will be written
             bush_name = "1.json"
             with open(bush_name, "w") as f:
-            json.dump("!", f)
+                pass
 
         file = open("plants.json", 'w')
         json.dump(plants, file)

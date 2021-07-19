@@ -41,17 +41,27 @@ def new_plant():
         photo_name = photo.filename
         
         try:
+            # list with plants main info. for preview on main page
             file = open("plants.json")
             plants = json.load(file)
             counter = int(max(plants))
             plants[counter + 1] = [name, description, photo_name, date]
             file.close()
-
+            # creates a file into which data will be written
+            bush_name = str(counter + 1) + ".json"
+            with open(bush_name, "w") as f:
+            json.dump("!", f)
+            
         except FileNotFoundError:
+            # create list with plants main info. for preview on main page
             plants = {}
             file = open("plants.json", 'w')
             plants[1] = [name, description, photo_name, date]
             file.close()
+            # creates a first file into which data will be written
+            bush_name = "1.json"
+            with open(bush_name, "w") as f:
+            json.dump("!", f)
 
         file = open("plants.json", 'w')
         json.dump(plants, file)

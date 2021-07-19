@@ -41,7 +41,7 @@ def new_plant():
         photo_name = photo.filename
         
         try:
-            # list with plants main info. for preview on main page
+            # dict with plants main info. for preview on main page
             file = open("plants.json")
             plants = json.load(file)
             counter = int(max(plants))
@@ -71,6 +71,36 @@ def new_plant():
     
     else:
         return render_template('new_plant.html')
+    
+    
+    
+@app.route('/view/<int:id>')
+def view(id):
+    try:
+        file = open("plants.json")
+        plants = json.load(file)   # dict
+        current_bush = plants[str(id)]
+        file.close()
+        bush_name = str(id) + ".json"
+        with open(bush_name) as f:
+                pass
+    
+        return render_template('view.html', bush=current_bush, bush_name=bush_name)
+    
+    
+    except:
+        pass
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     
 @app.route('/upload', methods=['POST', 'GET'])
@@ -107,15 +137,13 @@ def upload():
     else:
         return render_template('upload.html')
 
-
-@app.route('/view')
-def view():
-
+    
+'''
+@app.route('/view/<int:id>')
+def view(id):
     try:
-
         file = open("today.json")
         report = json.load(file)
-
         sorted_keys_list = sorted(report, reverse=True)
         sorted_report = {}
         file.close()
@@ -128,7 +156,11 @@ def view():
     except:
         
         return render_template('view.html', report=None)
+'''   
 
-
+    
 if __name__ == '__main__':
     app.run(debug=True)
+
+    
+    

@@ -63,7 +63,7 @@ def new_plant():
             # create a first file of the fisrt bush, into which data will be written further
             bush_name = "1.json"
             # create an empty dict with all first plant data, which will be filled further
-            plant_data = {1:["day 1", "28", "55", "03.09.2021"]}
+            plant_data = {1:["03.09.2021", "start growing", "28", "55"]}
             with open(bush_name, "w") as f:
                 json.dump(plant_data, f)
 

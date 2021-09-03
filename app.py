@@ -47,12 +47,12 @@ def new_plant():
             counter_main = int(max(plants))
             plants[counter_main + 1] = [name, description, photo_name, date]
             file.close()
-            # creates a file into which data will be written next
+            # creates a file into which data will be written further
             bush_name = str(counter_main + 1) + ".json"
-            # create empty dict with all plant's data which will be written next
+            # create an empty dict with all plant data, which will be filled further
             plant_data = {}
             with open(bush_name, "w") as f:
-                plants_data[0] = []
+                json.dump(plants_data, f)
             
         except FileNotFoundError:
             # create list with plants main info. for preview on main page
@@ -60,12 +60,12 @@ def new_plant():
             file = open("plants.json", 'w')
             plants[1] = [name, description, photo_name, date]
             file.close()
-            # creates a first file into which data will be written
+            # creates a first file into which data will be written further
             bush_name = "1.json"
-            # create empty dict with all plant's data which will be written next
+            # create an empty dict with all plant data, which will be filled further
             plant_data = {}
             with open(bush_name, "w") as f:
-                plants_data[0] = []
+                json.dump(plants_data, f)
 
         file = open("plants.json", 'w')
         json.dump(plants, file)

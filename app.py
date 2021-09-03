@@ -44,13 +44,15 @@ def new_plant():
             # dict with plants main info. for preview on main page
             file = open("plants.json")
             plants = json.load(file)
-            counter = int(max(plants))
-            plants[counter + 1] = [name, description, photo_name, date]
+            counter_main = int(max(plants))
+            plants[counter_main + 1] = [name, description, photo_name, date]
             file.close()
-            # creates a file into which data will be written
-            bush_name = str(counter + 1) + ".json"
+            # creates a file into which data will be written next
+            bush_name = str(counter_main + 1) + ".json"
+            # create empty dict with all plant's data which will be written next
+            plant_data = {}
             with open(bush_name, "w") as f:
-                pass
+                plants_data[0] = []
             
         except FileNotFoundError:
             # create list with plants main info. for preview on main page
@@ -60,8 +62,10 @@ def new_plant():
             file.close()
             # creates a first file into which data will be written
             bush_name = "1.json"
+            # create empty dict with all plant's data which will be written next
+            plant_data = {}
             with open(bush_name, "w") as f:
-                pass
+                plants_data[0] = []
 
         file = open("plants.json", 'w')
         json.dump(plants, file)
@@ -95,14 +99,11 @@ def view(id):
         
         
         
+
         
         
         
         
-        
-        
-        
-    
 @app.route('/upload', methods=['POST', 'GET'])
 def upload():
     if request.method == 'POST':

@@ -16,15 +16,15 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def index():
     try:
 
-        file = open("plants.json")
+        file = open("plants.json")   # main dict
         plants = json.load(file)
-        sorted_keys_list = sorted(plants, reverse=True)
-        sorted_plants = {}
+        #sorted_keys_list = sorted(plants, reverse=True)
+        #sorted_plants = {}
         file.close()
-        for k in sorted_keys_list:
-            sorted_plants[k] = plants[k]
+        #for k in sorted_keys_list:
+            #sorted_plants[k] = plants[k]
             
-        return render_template('index.html', plants=sorted_plants)
+        return render_template('index.html', plants=plants)
     
     except:
         return render_template('index.html', plants=None)
@@ -42,7 +42,7 @@ def new_plant():
         
         try:
             # dict with plants main info. for preview on main page
-            file = open("plants.json")
+            file = open("plants.json")   # dict inside
             plants = json.load(file)
             counter_main = int(max(plants))
             plants[counter_main + 1] = [name, description, photo_name, date]
@@ -57,13 +57,13 @@ def new_plant():
         except FileNotFoundError:
             # create list with plants main info. for preview on main page
             plants = {}
-            file = open("plants.json", 'w')
-            plants[1] = [name, description, photo_name, date]
+            file = open("plants.json", 'w')   # create file
+            plants[1] = [name, description, photo_name, date]   # first writing
             file.close()
-            # creates a first file into which data will be written further
+            # create a first file of the fisrt bush, into which data will be written further
             bush_name = "1.json"
-            # create an empty dict with all plant data, which will be filled further
-            plant_data = {}
+            # create an empty dict with all first plant data, which will be filled further
+            plant_data = {1:["day 1", "28", "55", "03.09.2021"]}
             with open(bush_name, "w") as f:
                 json.dump(plant_data, f)
 
@@ -87,7 +87,9 @@ def view(id):
         file.close()
         bush_name = str(id) + ".json"
         with open(bush_name) as f:
-                pass
+            plant_data = json.load(f)   # dict
+        sorted_plant_data = sorted(plant_data, reverse=True)
+            
     
         return render_template('view.html', bush=current_bush, bush_name=bush_name)
     

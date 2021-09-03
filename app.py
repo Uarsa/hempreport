@@ -63,7 +63,8 @@ def new_plant():
             # create a first file of the fisrt bush, into which data will be written further
             bush_name = "1.json"
             # create an empty dict with all first plant data, which will be filled further
-            plant_data = {1:["03.09.2021", "start growing", "28", "55"], 2:["04.09.2021", "normal mode", "30", "60"]}
+            plant_data = {}
+            #plant_data = {1:["03.09.2021", "start growing", "28", "55"], 2:["04.09.2021", "normal mode", "30", "60"]}
             with open(bush_name, "w") as f:
                 json.dump(plant_data, f)
 
@@ -93,9 +94,8 @@ def view(id):
         sorted_keys_list = sorted(plant_data, reverse=True)
         for k in sorted_keys_list:
             sorted_plant_data[k] = plant_data[k]
-            
-    
-        return render_template('view.html', bush=current_bush, report=sorted_plant_data)
+        bush_id = id   
+        return render_template('view.html', bush=current_bush, report=sorted_plant_data, bush_id=bush_id)
     
     
     except:

@@ -52,7 +52,7 @@ def new_plant():
             # create an empty dict with all plant data, which will be filled further
             plant_data = {}
             with open(bush_name, "w") as f:
-                json.dump(plants_data, f)
+                json.dump(plant_data, f)
             
         except FileNotFoundError:
             # create list with plants main info. for preview on main page
@@ -65,7 +65,7 @@ def new_plant():
             # create an empty dict with all plant data, which will be filled further
             plant_data = {}
             with open(bush_name, "w") as f:
-                json.dump(plants_data, f)
+                json.dump(plant_data, f)
 
         file = open("plants.json", 'w')
         json.dump(plants, file)

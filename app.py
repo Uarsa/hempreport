@@ -85,13 +85,17 @@ def view(id):
         plants = json.load(file)   # dict
         current_bush = plants[str(id)]
         file.close()
+        
         bush_name = str(id) + ".json"
+        sorted_plant_data = {}
         with open(bush_name) as f:
             plant_data = json.load(f)   # dict
-        sorted_plant_data = sorted(plant_data, reverse=True)
+        sorted_keys_list = sorted(plant_data, reverse=True)
+        for k in sorted_keys_list:
+            sorted_plant_data[k] = plant_data[k]
             
     
-        return render_template('view.html', bush=current_bush, bush_name=bush_name)
+        return render_template('view.html', bush=current_bush, plant_data=sorted_plant_data)
     
     
     except:

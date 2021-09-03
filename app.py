@@ -95,7 +95,7 @@ def view(id):
             sorted_plant_data[k] = plant_data[k]
             
     
-        return render_template('view.html', bush=current_bush, plant_data=sorted_plant_data)
+        return render_template('view.html', bush=current_bush, report=sorted_plant_data)
     
     
     except:

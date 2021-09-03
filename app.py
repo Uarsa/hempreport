@@ -18,13 +18,13 @@ def index():
 
         file = open("plants.json")   # main dict
         plants = json.load(file)
-        #sorted_keys_list = sorted(plants, reverse=True)
-        #sorted_plants = {}
+        sorted_keys_list = sorted(plants, reverse=True)
+        sorted_plants = {}
         file.close()
-        #for k in sorted_keys_list:
-            #sorted_plants[k] = plants[k]
+        for k in sorted_keys_list:
+            sorted_plants[k] = plants[k]
             
-        return render_template('index.html', plants=plants)
+        return render_template('index.html', plants=sorted_plants)
     
     except:
         return render_template('index.html', plants=None)

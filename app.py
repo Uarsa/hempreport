@@ -103,12 +103,7 @@ def view(id):
     
     
         
-        
-        
-
-        
-        
-        
+    
         
 @app.route('/add_post/<int:id>', methods=['POST', 'GET'])
 def upload():

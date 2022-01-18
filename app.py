@@ -103,6 +103,17 @@ def view(id):
     
     
     
+    
+@app.route('/add_post/<int:id>', methods=['POST', 'GET'])
+def add_post():
+    
+    return render_template('add_post.html')
+    
+    
+    
+    
+'''   
+# norm    
 @app.route('/add_post/<int:id>', methods=['POST', 'GET'])
 def add_post():
     if request.method == 'POST':
@@ -131,12 +142,8 @@ def add_post():
     
     else:
         return render_template('add_post.html')   
-        
-        
-            
-    
-        
-    
+
+''' 
 '''        
 @app.route('/add_post/<int:id>', methods=['POST', 'GET'])
 def add_post():

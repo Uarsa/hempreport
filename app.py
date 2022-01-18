@@ -110,7 +110,7 @@ def view(id):
         
         
         
-@app.route('/upload', methods=['POST', 'GET'])
+@app.route('/add_post/<int:id>', methods=['POST', 'GET'])
 def upload():
     if request.method == 'POST':
         # description = request.form['description']
@@ -145,25 +145,7 @@ def upload():
         return render_template('upload.html')
 
     
-'''
-@app.route('/view/<int:id>')
-def view(id):
-    try:
-        file = open("today.json")
-        report = json.load(file)
-        sorted_keys_list = sorted(report, reverse=True)
-        sorted_report = {}
-        file.close()
 
-        for k in sorted_keys_list:
-            sorted_report[k] = report[k]
-            
-        return render_template('view.html', report=sorted_report)
-
-    except:
-        
-        return render_template('view.html', report=None)
-'''   
 
     
 if __name__ == '__main__':

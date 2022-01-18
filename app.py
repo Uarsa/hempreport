@@ -121,7 +121,10 @@ def add_post():
         with open(bush_name) as f:
             plant_data = json.load(f)
             
-        plant_data["1"] = [date, description, temp, humidity]    
+        plant_data["1"] = [date, description, temp, humidity]
+        
+        with open(bush_name, "w") as f:
+            json.dump(plant_data, f)
         
         
             

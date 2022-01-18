@@ -106,8 +106,17 @@ def view(id):
     
 @app.route('/add_post/<int:id>')
 def add_post(id):
+    try:
+        file = open("plants.json")
+        plants = json.load(file)   # dict
+        current_bush = plants[str(id)]
+        file.close()
+        
+        return render_template('add_post.html')
     
-    return render_template('add_post.html')
+    
+    except:
+        pass
     
     
     

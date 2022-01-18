@@ -130,7 +130,7 @@ def add_post():
     
     
     else:
-        return render_template('upload.html')   
+        return render_template('add_post.html')   
         
         
             

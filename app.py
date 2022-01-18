@@ -102,9 +102,33 @@ def view(id):
         pass
     
     
+    
+@app.route('/add_post/<int:id>', methods=['POST', 'GET'])
+def add_post():
+    if request.method == 'POST':
+        date = datetime.datetime.now().strftime('%d/%m/%Y')
+        description = request.form["description"]
+        temp = request.form["temp"]
+        humidity = request.form["humidity"]
+        photo = request.files["photo"]
         
+        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], photo.filename))
+        photo_name = photo.filename
+
+        
+        bush_name = str(id) + ".json"
+        
+        with open(bush_name) as f:
+            plant_data = json.load(f)
+            
+        plant_data["1"] = [date, description, temp, humidity]    
+        
+        
+            
     
         
+    
+'''        
 @app.route('/add_post/<int:id>', methods=['POST', 'GET'])
 def add_post():
     if request.method == 'POST':
@@ -138,7 +162,7 @@ def add_post():
         return redirect('/view')
     else:
         return render_template('upload.html')
-
+'''
     
 
 

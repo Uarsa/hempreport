@@ -125,6 +125,12 @@ def add_post():
         
         with open(bush_name, "w") as f:
             json.dump(plant_data, f)
+            
+        return redirect('/view')
+    
+    
+    else:
+        return render_template('upload.html')   
         
         
             

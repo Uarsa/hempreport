@@ -106,7 +106,7 @@ def view(id):
     
         
 @app.route('/add_post/<int:id>', methods=['POST', 'GET'])
-def upload():
+def add_post():
     if request.method == 'POST':
         # description = request.form['description']
         date = datetime.datetime.now().strftime('%d/%m/%Y')

@@ -125,7 +125,7 @@ def add_post(id):
     
  
 @app.route('/add_post/<int:id>', methods=['POST', 'GET'])
-def add_post():
+def add_post(id):
     if request.method == 'POST':
         date = datetime.datetime.now().strftime('%d/%m/%Y')
         description = request.form["description"]

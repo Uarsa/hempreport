@@ -111,7 +111,7 @@ def add_post(id):
         temp = request.form["temp"]
         humidity = request.form["humidity"]
     
-        return render_template('/')
+        return redirect('/')
     
     else:
         return render_template('add.html')

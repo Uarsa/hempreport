@@ -143,7 +143,7 @@ def add_post(id):
         try:
             counter = int(max(plant_data))
         except ValueError:
-            counter = 1
+            counter = 0
             
         plant_data[counter + 1] = [date, description, temp, humidity]
         

@@ -33,16 +33,23 @@
     <h1>ADD POST</h1>
     <h6>omg</h6>
     <br>
+    
+    <form action="{{ url_for('add_post') }}" method="POST" enctype="multipart/form-data">
+      <input type="text" name="description" id="description" class="form-control" placeholder="description">
+      <br>
+      <p><input type="submit" class="btn btn-success" value="Enter">
+      <br>
+    </form>
+    
+    
    
 </div>
     
 
-    
-
-
-
 </body>
 
+    
+ 
 <footer class="container">
     <h6 class="float-right"><a href="#">Back to top</a></h6>
     <h6>© 2020 UARSA DEVELOPMENT. · <a href="#">Privacy</a> · <a href="#">Terms</a></h6>

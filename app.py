@@ -139,8 +139,10 @@ def add_post(id):
         
         with open(bush_name) as f:
             plant_data = json.load(f)
+        
+        counter = int(max(plant_data))
             
-        plant_data["1"] = [date, description, temp, humidity]
+        plant_data[counter + 1] = [date, description, temp, humidity]
         
         with open(bush_name, "w") as f:
             json.dump(plant_data, f)

@@ -107,7 +107,7 @@ def view(id):
 @app.route('/add_post/<int:id>', methods=['POST', 'GET'])
 def add_post(id):
     if request.method == 'POST':
-        pass
+        description = request.form["description"]
     
         return render_template('add.html')
     

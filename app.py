@@ -78,7 +78,6 @@ def new_plant():
         return render_template('new_plant.html')
     
     
-    
 @app.route('/view/<int:id>')
 def view(id):
     try:
@@ -96,33 +95,10 @@ def view(id):
             sorted_plant_data[k] = plant_data[k]
         bush_id = id   
         return render_template('view.html', bush=current_bush, report=sorted_plant_data, bush_id=bush_id)
-    
-    
+        
     except:
         pass
-    
-    
-    
-'''   
-@app.route('/add_post/<int:id>', methods=['POST', 'GET'])
-def add_post(id):
-    if request.method == 'POST':
-        description = request.form["description"]
-        temp = request.form["temp"]
-        humidity = request.form["humidity"]
-    
-        return redirect('/')
-    
-    else:
-        return render_template('add.html')
-'''        
         
-    
-
-    
-    
-    
-    
  
 @app.route('/add_post/<int:id>', methods=['POST', 'GET'])
 def add_post(id):
@@ -151,50 +127,9 @@ def add_post(id):
             json.dump(plant_data, f)
             
         return redirect('/view/' + str(id))
-        #return redirect('view.html')
-         
-    
     
     else:
         return render_template('add.html')  
-
-
-'''        
-@app.route('/add_post/<int:id>', methods=['POST', 'GET'])
-def add_post():
-    if request.method == 'POST':
-        # description = request.form['description']
-        date = datetime.datetime.now().strftime('%d/%m/%Y')
-        description = request.form["description"]
-        temp = request.form["temp"]
-        humidity = request.form["humidity"]
-        photo = request.files["photo"]
-        
-        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], photo.filename))
-        photo_name = photo.filename
-
-        try:
-            file = open("today.json")
-            report = json.load(file)
-            counter = int(max(report))
-            report[counter + 1] = [date, description, temp, humidity, photo_name]
-            file.close()
-
-        except FileNotFoundError:
-            report = {}
-            file = open("today.json", 'w')
-            report[1] = [date, description, temp, humidity, photo_name]
-            file.close()
-
-        file = open("today.json", 'w')
-        json.dump(report, file)
-        file.close()
-
-        return redirect('/view')
-    else:
-        return render_template('upload.html')
-'''
-    
 
 
     

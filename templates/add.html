@@ -27,33 +27,36 @@
 
 <body>
 
-
+    
 <div class="container">
 
     <h1>ADD POST</h1>
-    <h6>omg</h6>
     <br>
-    
-   <form method="post">
-          
-          <textarea name="description" id="description" class="form-control" placeholder="description"></textarea>
-          <br>
-          <input type="submit" class="btn btn-outline-primary" value="Enter">
-       
-   </form>
-    
    
     
     
+    <form method="POST">
+    <div class="row rounded">
+      <div class="col-8">
+        <input type="text" name="description" id="description" class="form-control" placeholder="description">
+      </div>
+      <div class="col">  
+        <input type="text" name="temp" id="temp" class="form-control" placeholder="temp">
+      </div>
+      <div class="col">
+        <input type="text" name="humidity" id="humidity" class="form-control" placeholder="humidity">
+      </div>    
+    </div>
+    <br>
+    <p><input type="submit" class="btn btn-success" value="Add">
+    </form>
+    
    
+    
 </div>
     
 
 </body>
 
     
- 
-<footer class="container">
-    <h6 class="float-right"><a href="#">Back to top</a></h6>
-    <h6>© 2020 UARSA DEVELOPMENT. · <a href="#">Privacy</a> · <a href="#">Terms</a></h6>
-</footer>
+   

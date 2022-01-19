@@ -103,7 +103,7 @@ def view(id):
     
     
     
-    
+'''   
 @app.route('/add_post/<int:id>', methods=['POST', 'GET'])
 def add_post(id):
     if request.method == 'POST':
@@ -115,7 +115,7 @@ def add_post(id):
     
     else:
         return render_template('add.html')
-        
+'''        
         
     
 
@@ -123,8 +123,7 @@ def add_post(id):
     
     
     
-'''   
-# norm    
+ 
 @app.route('/add_post/<int:id>', methods=['POST', 'GET'])
 def add_post():
     if request.method == 'POST':
@@ -132,12 +131,10 @@ def add_post():
         description = request.form["description"]
         temp = request.form["temp"]
         humidity = request.form["humidity"]
-        photo = request.files["photo"]
-        
-        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], photo.filename))
-        photo_name = photo.filename
+        #photo = request.files["photo"]
+        #photo.save(os.path.join(app.config['UPLOAD_FOLDER'], photo.filename))
+        #photo_name = photo.filename
 
-        
         bush_name = str(id) + ".json"
         
         with open(bush_name) as f:
@@ -152,9 +149,9 @@ def add_post():
     
     
     else:
-        return render_template('add_post.html')   
+        return render_template('add.html')  
 
-''' 
+
 '''        
 @app.route('/add_post/<int:id>', methods=['POST', 'GET'])
 def add_post():

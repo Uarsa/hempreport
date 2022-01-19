@@ -146,7 +146,7 @@ def add_post(id):
             json.dump(plant_data, f)
             
         #return redirect('/view/' + id)
-        return render_template('view.html')
+        return redirect('view.html')
     
     
     else:

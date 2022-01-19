@@ -139,8 +139,11 @@ def add_post(id):
         
         with open(bush_name) as f:
             plant_data = json.load(f)
-        
-        counter = int(max(plant_data))
+            
+        try:
+            counter = int(max(plant_data))
+        except ValueError:
+            counter = 1
             
         plant_data[counter + 1] = [date, description, temp, humidity]
         

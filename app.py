@@ -108,8 +108,10 @@ def view(id):
 def add_post(id):
     if request.method == 'POST':
         description = request.form["description"]
+        temp = request.form["temp"]
+        humidity = request.form["humidity"]
     
-        return render_template('add.html')
+        return render_template('/')
     
     else:
         return render_template('add.html')

@@ -107,16 +107,18 @@ def view(id):
 @app.route('/add_post/<int:id>', methods=['POST', 'GET'])
 def add_post(id):
     if request.method == 'POST':
-        date = datetime.datetime.now().strftime('%d/%m/%Y')
-        description = request.form["description"]
-        temp = request.form["temp"]
-        humidity = request.form["humidity"]
+        #date = datetime.datetime.now().strftime('%d/%m/%Y')
+        #description = request.form["description"]
+        #temp = request.form["temp"]
+        #humidity = request.form["humidity"]
         #photo = request.files["photo"]
         
         #photo.save(os.path.join(app.config['UPLOAD_FOLDER'], photo.filename))
         #photo_name = photo.filename
         
-        plant_info = [date, description, temp, humidity]
+        #plant_info = [date, description, temp, humidity]
+        
+        
         
         return redirect('/')
     

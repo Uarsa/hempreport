@@ -145,7 +145,8 @@ def add_post(id):
         with open(bush_name, "w") as f:
             json.dump(plant_data, f)
             
-        return redirect('/view/' + id)
+        #return redirect('/view/' + id)
+        return render_template('view.html')
     
     
     else:
